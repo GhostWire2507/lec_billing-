@@ -4,7 +4,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.geometry.Insets?>
 
-<BorderPane fx:id="fxRoot" stylesheets="@style.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane fx:id="fxRoot" stylesheets="@style.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lecbilling.mokopanemakhetha.BillCalculatorController">
     <center>
         <VBox alignment="CENTER" spacing="20.0" style="-fx-background-color: linear-gradient(to bottom right, #1e3c72, #2a5298); -fx-padding: 40;">
             <Label text="Calculate Electricity Bill" styleClass="form-title" />

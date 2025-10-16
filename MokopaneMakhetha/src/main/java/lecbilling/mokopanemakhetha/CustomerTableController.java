@@ -39,6 +39,8 @@ public class CustomerTableController {
         fxBillColumn.setCellValueFactory(new PropertyValueFactory<>("billAmount"));
 
         fxCustomerTable.setItems(customerManager.getCustomers());
+
+        fxSearchField.textProperty().addListener((observable, oldValue, newValue) -> handleSearch());
     }
 
     @FXML

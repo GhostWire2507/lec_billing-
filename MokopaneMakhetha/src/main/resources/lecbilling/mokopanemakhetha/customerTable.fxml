@@ -5,7 +5,7 @@
 <?import javafx.scene.text.*?>
 <?import javafx.geometry.Insets?>
 
-<BorderPane fx:id="fxRoot" stylesheets="@style.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane fx:id="fxRoot" stylesheets="@style.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lecbilling.mokopanemakhetha.CustomerTableController">
     <top>
         <VBox style="-fx-background-color: #1e3c72;">
             <HBox alignment="CENTER_LEFT" style="-fx-padding: 20;">
