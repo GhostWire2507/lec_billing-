@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.geometry.Insets?>
+
+<BorderPane fx:id="fxRoot" stylesheets="@style.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+    <top>
+        <VBox style="-fx-background-color: #1e3c72;">
+            <HBox alignment="CENTER_LEFT" style="-fx-padding: 20;">
+                <Label text="LEC Billing Dashboard" styleClass="dashboard-title" />
+                <Region HBox.hgrow="ALWAYS" />
+                <Button fx:id="fxLogoutButton" text="Logout" styleClass="logout-button" onAction="#handleLogout" />
+            </HBox>
+        </VBox>
+    </top>
+
+    <center>
+        <VBox alignment="CENTER" spacing="40.0" style="-fx-background-color: linear-gradient(to bottom right, #1e3c72, #2a5298);">
+            <padding>
+                <Insets bottom="50.0" left="50.0" right="50.0" top="50.0" />
+            </padding>
+
+            <Label text="Welcome to LEC Billing System" styleClass="welcome-title" />
+
+            <GridPane hgap="30" vgap="30" alignment="CENTER">
+                <columnConstraints>
+                    <ColumnConstraints />
+                    <ColumnConstraints />
+                </columnConstraints>
+                <rowConstraints>
+                    <RowConstraints />
+                    <RowConstraints />
+                </rowConstraints>
+
+                <Button fx:id="fxManageCustomersButton" text="Manage Customers" styleClass="dashboard-button" onAction="#handleManageCustomers" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+                <Button fx:id="fxCalculateBillsButton" text="Calculate Bills" styleClass="dashboard-button" onAction="#handleManageCustomers" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+                <Button fx:id="fxViewReportsButton" text="View Reports" styleClass="dashboard-button" onAction="#handleManageCustomers" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+            </GridPane>
+        </VBox>
+    </center>
+</BorderPane>
