@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.image.*?>
+
+<BorderPane fx:id="fxRoot" stylesheets="@style.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lecbilling.mokopanemakhetha.BillsDashboardController">
+    <top>
+        <VBox style="-fx-background-color: #1e3c72;">
+            <HBox alignment="CENTER" style="-fx-padding: 10;">
+                <ImageView fitWidth="40" fitHeight="40" preserveRatio="true">
+                    <Image url="@lecIcon.jpg" />
+                </ImageView>
+                <Label text="  LEC Billing System" styleClass="dashboard-title" />
+            </HBox>
+            <HBox alignment="CENTER_LEFT" style="-fx-padding: 10 20 20 20;">
+                <Label text="Bills Management" styleClass="dashboard-subtitle" />
+                <Region HBox.hgrow="ALWAYS" />
+
+                <!-- Stats -->
+                <HBox spacing="20" alignment="CENTER_RIGHT">
+                    <VBox alignment="CENTER_RIGHT" spacing="5">
+                        <Label text="Billed Customers" styleClass="stats-label" />
+                        <Label fx:id="fxTotalBillsLabel" text="0" styleClass="stats-value" />
+                    </VBox>
+                    <VBox alignment="CENTER_RIGHT" spacing="5">
+                        <Label text="Total Revenue" styleClass="stats-label" />
+                        <Label fx:id="fxTotalRevenueLabel" text="M0.00" styleClass="stats-value" />
+                    </VBox>
+                </HBox>
+
+                <Button fx:id="fxBackButton" text="Back to Dashboard" styleClass="back-button" onAction="#handleBack" />
+            </HBox>
+        </VBox>
+    </top>
+
+    <center>
+        <SplitPane dividerPositions="0.6" style="-fx-background-color: transparent;">
+            <!-- Left: Customer Table -->
+            <VBox spacing="10" style="-fx-padding: 20; -fx-background-color: transparent;">
+                <Label text="Customers" styleClass="section-title" />
+                <TableView fx:id="fxCustomerTable" styleClass="bills-table" prefHeight="400">
+                    <columns>
+                        <TableColumn fx:id="fxCustomerIdColumn" text="Customer ID" styleClass="table-column" />
+                        <TableColumn fx:id="fxNameColumn" text="Name" styleClass="table-column" />
+                        <TableColumn fx:id="fxCurrentUsageColumn" text="Current Usage (kWh)" styleClass="table-column" />
+                        <TableColumn fx:id="fxCurrentBillColumn" text="Current Bill (M)" styleClass="table-column" />
+                    </columns>
+                    <columnResizePolicy>
+                        <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                    </columnResizePolicy>
+                </TableView>
+            </VBox>
+
+            <!-- Right: Bill Calculation -->
+            <VBox spacing="20" style="-fx-background-color: rgba(42, 82, 152, 0.95); -fx-background-radius: 10; -fx-padding: 30; -fx-border-color: rgba(255,255,255,0.3); -fx-border-width: 1; -fx-border-radius: 10;">
+                <Label fx:id="fxCustomerNameLabel" text="Select a customer to calculate bill" styleClass="customer-name-label" wrapText="true" />
+
+                <VBox spacing="10">
+                    <Label text="New Electricity Usage (kWh)" styleClass="bills-form-label" />
+                    <TextField fx:id="fxNewUsageField" styleClass="form-field" promptText="Enter usage in kWh" />
+                </VBox>
+
+                <VBox spacing="5" alignment="CENTER">
+                    <Label text="Calculated Bill Amount:" styleClass="bill-label" />
+                    <Label fx:id="fxCalculatedBillLabel" text="M0.00" styleClass="bill-amount" />
+                </VBox>
+
+                <VBox spacing="10" alignment="CENTER">
+                    <Button fx:id="fxCalculateButton" text="Calculate Bill" styleClass="calculate-button" onAction="#handleCalculate" />
+                    <Button fx:id="fxUpdateBillButton" text="Update Customer Bill" styleClass="save-button" onAction="#handleUpdateBill" />
+                    <Button fx:id="fxPrintReceiptButton" text="Print Receipt" styleClass="action-button" onAction="#handlePrintReceipt" />
+                </VBox>
+            </VBox>
+        </SplitPane>
+    </center>
+</BorderPane>

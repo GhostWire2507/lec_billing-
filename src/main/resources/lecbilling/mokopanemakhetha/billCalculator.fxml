@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<BorderPane fx:id="fxRoot" stylesheets="@style.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lecbilling.mokopanemakhetha.BillCalculatorController">
+    <center>
+        <VBox alignment="CENTER" spacing="20.0" style="-fx-background-color: linear-gradient(to bottom right, #1e3c72, #2a5298); -fx-padding: 40;">
+            <Label text="Calculate Electricity Bill" styleClass="form-title" />
+
+            <VBox spacing="15.0" style="-fx-background-color: rgba(255,255,255,0.1); -fx-background-radius: 10; -fx-padding: 30;">
+                <Label fx:id="fxCustomerNameLabel" styleClass="customer-name-label" />
+
+                <VBox spacing="10.0">
+                    <Label text="Electricity Usage (kWh)" styleClass="form-label" />
+                    <TextField fx:id="fxUsageField" styleClass="form-field" promptText="Enter usage in kWh" />
+                </VBox>
+
+                <Button fx:id="fxCalculateButton" text="Calculate Bill" styleClass="calculate-button" onAction="#handleCalculate" />
+
+                <VBox spacing="5.0" alignment="CENTER">
+                    <Label text="Bill Amount:" styleClass="bill-label" />
+                    <Label fx:id="fxBillAmountLabel" text="M0.00" styleClass="bill-amount" />
+                </VBox>
+
+                <HBox spacing="15.0" alignment="CENTER">
+                    <Button fx:id="fxSaveButton" text="Save Bill" styleClass="save-button" onAction="#handleSave" />
+                    <Button fx:id="fxCancelButton" text="Cancel" styleClass="cancel-button" onAction="#handleCancel" />
+                </HBox>
+            </VBox>
+        </VBox>
+    </center>
+</BorderPane>

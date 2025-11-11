@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.chart.*?>
+
+<BorderPane fx:id="fxRoot" stylesheets="@style.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lecbilling.mokopanemakhetha.ReportsController">
+    <top>
+        <VBox style="-fx-background-color: #1e3c72;">
+            <HBox alignment="CENTER" style="-fx-padding: 10;">
+                <ImageView fitWidth="40" fitHeight="40" preserveRatio="true">
+                    <Image url="@lecIcon.jpg" />
+                </ImageView>
+                <Label text="  LEC Billing System" styleClass="dashboard-title" />
+            </HBox>
+            <HBox alignment="CENTER_LEFT" style="-fx-padding: 10 20 20 20;">
+                <Label text="Reports Dashboard" styleClass="dashboard-subtitle" />
+                <Region HBox.hgrow="ALWAYS" />
+                <Button fx:id="fxPrintReportButton" text="Print Report" styleClass="action-button" onAction="#handlePrintReport" />
+                <Button fx:id="fxBackButton" text="Back to Dashboard" styleClass="back-button" onAction="#handleBack" />
+            </HBox>
+        </VBox>
+    </top>
+
+    <center>
+        <VBox spacing="20" style="-fx-background-color: linear-gradient(to bottom right, #1e3c72, #2a5298); -fx-padding: 20;">
+            <!-- Statistics Cards -->
+            <HBox spacing="20" alignment="CENTER">
+                <VBox style="-fx-background-color: rgba(255,255,255,0.1); -fx-background-radius: 10; -fx-padding: 20;" alignment="CENTER" spacing="10">
+                    <Label text="Total Customers" styleClass="card-label" />
+                    <Label fx:id="fxTotalCustomersLabel" text="0" styleClass="card-value" />
+                </VBox>
+
+                <VBox style="-fx-background-color: rgba(255,255,255,0.1); -fx-background-radius: 10; -fx-padding: 20;" alignment="CENTER" spacing="10">
+                    <Label text="Total Revenue" styleClass="card-label" />
+                    <Label fx:id="fxTotalRevenueLabel" text="M0.00" styleClass="card-value" />
+                </VBox>
+
+                <VBox style="-fx-background-color: rgba(255,255,255,0.1); -fx-background-radius: 10; -fx-padding: 20;" alignment="CENTER" spacing="10">
+                    <Label text="Average Bill" styleClass="card-label" />
+                    <Label fx:id="fxAvgBillLabel" text="M0.00" styleClass="card-value" />
+                </VBox>
+
+                <VBox style="-fx-background-color: rgba(255,255,255,0.1); -fx-background-radius: 10; -fx-padding: 20;" alignment="CENTER" spacing="10">
+                    <Label text="Highest Usage" styleClass="card-label" />
+                    <Label fx:id="fxHighestUsageLabel" text="N/A" styleClass="card-value-small" />
+                </VBox>
+            </HBox>
+
+            <!-- Charts -->
+            <HBox spacing="20" alignment="CENTER">
+                <VBox spacing="10" style="-fx-background-color: rgba(255,255,255,0.1); -fx-background-radius: 10; -fx-padding: 20;">
+                    <Label text="Electricity Usage by Customer" styleClass="chart-title" />
+                    <BarChart fx:id="fxUsageChart" prefWidth="500" prefHeight="300">
+                        <xAxis>
+                            <CategoryAxis label="Customers" />
+                        </xAxis>
+                        <yAxis>
+                            <NumberAxis label="Usage (kWh)" />
+                        </yAxis>
+                    </BarChart>
+                </VBox>
+
+                <VBox spacing="10" style="-fx-background-color: rgba(255,255,255,0.1); -fx-background-radius: 10; -fx-padding: 20;">
+                    <Label text="Revenue by Customer" styleClass="chart-title" />
+                    <BarChart fx:id="fxRevenueChart" prefWidth="500" prefHeight="300">
+                        <xAxis>
+                            <CategoryAxis label="Customers" />
+                        </xAxis>
+                        <yAxis>
+                            <NumberAxis label="Amount (M)" />
+                        </yAxis>
+                    </BarChart>
+                </VBox>
+            </HBox>
+        </VBox>
+    </center>
+</BorderPane>
